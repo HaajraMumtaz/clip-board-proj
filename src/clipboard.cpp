@@ -1,16 +1,36 @@
 #include <iostream>
-#include "entry.h"
+#include "clipboard.h"
 
-class clipboard
+clipboard::clipboard()
 {
-private:
-entry**allEntries;
+    allEntries=nullptr;
+    currentSize=0;
+    
+}
+void clipboard::pinEntry(int ix)
+{
+    allEntries[ix]->pin(true);
+}
+void clipboard::printEntry(int ix)
+{
+    if (ix<=currentSize&&ix>0)
+    allEntries[ix]->printEntry();
+}
+void clipboard::addEntry()
+{
+    entry** temp;
+    if (currentSize+1<=maxsize)
+    {
+        temp=new entry*[currentSize++];
 
-public:
-clipboard();
-void pinEntry(int ix);
-void printEntry(int ix);
-void addEntry();
+        for(int i=0;i<currentSize;i++)
+        {
+            temp[i]=allEntries[i];
+        }
+        temp[currentSize]=new entry();
+        delete[]allEntries;
+        allEntries=temp;
+    }
+}
 void deleteEntry();
 ~clipboard();
-};

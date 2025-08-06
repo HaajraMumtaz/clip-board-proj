@@ -24,3 +24,25 @@ void entry::setLabel(const char*&labelVar)
 {
     strcpy(this->label,labelVar);
 }
+void entry::input()
+{
+    char*temp;
+    
+}
+entry::entry(char*dataVar,char*labelVar)
+{
+    data=new char(strlen(dataVar));
+    labelVar=new char(strlen(labelVar));
+    strcpy(data,dataVar);
+    strcpy(label,labelVar);
+    pinned=false;
+}
+void entry::printEntry()
+{
+    cout<<"----"<<label<<"----\n"<<data<<endl;
+}
+entry::~entry()
+{
+    delete[] data;
+    delete[] label;
+}
