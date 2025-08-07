@@ -13,5 +13,6 @@ void pinEntry(int ix);
 void printEntry(int ix);
 void addEntry();
 void deleteEntry();
+void deleteEntry(int ix);
 ~clipboard();
 };
