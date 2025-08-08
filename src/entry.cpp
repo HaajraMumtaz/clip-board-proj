@@ -1,4 +1,5 @@
 #include "entry.h"
+#include "utils.h"
 #include <cstring>
 char*entry:: getData()
 {
@@ -40,6 +41,32 @@ entry::entry(char*dataVar,char*labelVar)
 void entry::printEntry()
 {
     cout<<"----"<<label<<"----\n"<<data<<endl;
+}
+void entry::input()
+{
+   
+   char lab[100];
+   bool input = false;
+   while (!input)
+   {
+        cout<<"enter label:";
+       try
+       {
+           cin >> label;
+           input=true;
+       }
+       catch (const std::exception &e)
+       {
+           std::cerr << e.what() << '\n';
+       }
+   }
+   cout<<"enter details:";
+   char*det;
+   det=inputUnlimited();
+
+   strcpy(label,lab);
+   strcpy(this->data,det);
+   delete[]det;
 }
 entry::~entry()
 {

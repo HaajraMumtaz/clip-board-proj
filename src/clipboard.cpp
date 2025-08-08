@@ -11,6 +11,7 @@ void clipboard::pinEntry(int ix)
 {
     allEntries[ix]->pin(true);
 }
+
 void clipboard::printEntry(int ix)
 {
     if (ix<=currentSize&&ix>0)
