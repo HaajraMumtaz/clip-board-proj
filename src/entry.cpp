@@ -52,7 +52,7 @@ void entry::input()
         cout<<"enter label:";
        try
        {
-           cin >> label;
+           cin >> lab;
            input=true;
        }
        catch (const std::exception &e)
@@ -63,8 +63,11 @@ void entry::input()
    cout<<"enter details:";
    char*det;
    det=inputUnlimited();
-
+   delete[]label;
+   label=new char[strlen(lab)+1];
    strcpy(label,lab);
+    delete[]data;
+   data=new char[strlen(det)+1];
    strcpy(this->data,det);
    delete[]det;
 }
