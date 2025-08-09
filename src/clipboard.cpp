@@ -29,6 +29,7 @@ void clipboard::addEntry()
             temp[i]=allEntries[i];
         }
         temp[currentSize]=new entry();
+        temp[currentSize++]->input();
         delete[]allEntries;
         allEntries=temp;
     }
@@ -88,4 +89,18 @@ clipboard::~clipboard()
         delete[]allEntries[i];
     }
     delete[]allEntries;
+}
+int clipboard::matchlabel(char*lab)
+{
+    int ix=-1;
+    for(int i=0;i<currentSize&&ix==-1;i++)
+    {
+        if(allEntries[i]->matchLabel(lab))
+        ix=i;
+    }
+    return ix;
+}
+void clipboard::pin(int ix, bool action)
+{
+    allEntries[ix]->pin(action);
 }
