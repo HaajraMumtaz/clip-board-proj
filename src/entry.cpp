@@ -76,3 +76,25 @@ entry::~entry()
     delete[] data;
     delete[] label;
 }
+bool entry::matchLabel(char*lab)//havent used strstr to improve personal logic
+{
+    bool matched=false;
+    int labIx=0;;
+    for(int i=0;i<(strlen(label)-strlen(lab)+1)&&!matched;i++)
+    {
+        if(lab[labIx]==label[i])
+        {
+            matched=true;
+            int j=i;
+            while(matched&&labIx!=strlen(lab))
+            {
+                if(lab[labIx++]!=label[j++])
+                {
+                    matched=false;
+                }
+            }
+            labIx=0;
+        }
+    }
+    return matched;
+}

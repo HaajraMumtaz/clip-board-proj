@@ -12,6 +12,7 @@ public:
 entry(char*vardata="",char*labelvar="");
 char* getData();
 char* getLabel();
+bool matchLabel(char*lab);
 void pin(bool action);
 bool isPinned();
 void setData(const char*&dataVar);
