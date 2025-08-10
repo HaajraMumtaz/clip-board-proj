@@ -25,18 +25,21 @@ void entry::setLabel(const char*&labelVar)
 {
     strcpy(this->label,labelVar);
 }
-void entry::input()
-{
-    char*temp;
-    
-}
+
 entry::entry(char*dataVar,char*labelVar)
 {
-    data=new char(strlen(dataVar));
-    labelVar=new char(strlen(labelVar));
+    data=new char[strlen(dataVar)];
+    labelVar=new char[strlen(labelVar)];
     strcpy(data,dataVar);
     strcpy(label,labelVar);
     pinned=false;
+}
+entry::entry()
+{
+    data=new char[1];
+    label=new char[1];
+    data[0]=label[0]='\0';
+
 }
 void entry::printEntry()
 {
@@ -60,8 +63,11 @@ void entry::input()
            std::cerr << e.what() << '\n';
        }
    }
+
+
    cout<<"enter details:";
    char*det;
+   cin.ignore();
    det=inputUnlimited();
    delete[]label;
    label=new char[strlen(lab)+1];

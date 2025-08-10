@@ -11,9 +11,9 @@ int main()
 
     while (choice!=8)
     {
-        cout<<"Enter 1 to add entry\nEnter 2 to delete the last unpinned entry\nEnter 3 to delete an entry by it's index\nEnter 4 to delete an entry by label\nEnter 5 to pin an entry\nEnter 6 to unpin an entry\nEnter 7 to print an entry\nEnter 8 to exit";
+        cout<<"Enter 1 to add entry\nEnter 2 to delete the last unpinned entry\nEnter 3 to delete an entry by it's index\nEnter 4 to delete an entry by label\nEnter 5 to pin an entry\nEnter 6 to unpin an entry\nEnter 7 to print an entry\nEnter 8 to exit"<<endl<<"choice:";
         cin>>choice;
-
+        cout<<"your choice:"<<choice<<endl;
         if(choice >0&&choice<9)
         {
             if(choice==1)
@@ -23,7 +23,8 @@ int main()
             else if (choice == 3||choice==5||choice==6||choice==7)
             {
                 cout<<"enter index:";
-                int ix=-1;
+                int ix;
+                cin>>ix;
                 if(ix>-1&&ix<mainBoard->Getcurrsize())
                 {
                     if(choice==3)
@@ -58,3 +59,4 @@ int main()
         else
         cout<<"invalid choice, enter again."<<endl;
     }
+}

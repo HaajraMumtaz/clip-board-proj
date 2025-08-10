@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -9,7 +10,8 @@ char* data;
 char* label;
 bool pinned;
 public:
-entry(char*vardata="",char*labelvar="");
+entry(char*vardata,char*labelvar);
+entry();
 char* getData();
 char* getLabel();
 bool matchLabel(char*lab);

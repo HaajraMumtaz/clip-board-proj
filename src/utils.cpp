@@ -8,9 +8,11 @@ char* inputUnlimited()
     int mySize=100;
     char*input=new char[mySize];
     int thisptr=0;
+    cout<<"1"<<endl;
     char alph='p';
     while (alph!='\n')
     {
+
         cin.get(alph);
         input[thisptr++]=alph;
         if(thisptr==mySize)

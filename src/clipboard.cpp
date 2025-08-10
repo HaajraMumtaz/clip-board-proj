@@ -14,24 +14,29 @@ void clipboard::pinEntry(int ix)
 
 void clipboard::printEntry(int ix)
 {
-    if (ix<=currentSize&&ix>0)
+    if (ix<currentSize&&ix>=0)
     allEntries[ix]->printEntry();
+    else
+    cout<<"invalid index"<<endl;
 }
 void clipboard::addEntry()
 {
+
     entry** temp;
     if (currentSize+1<=maxsize)
     {
-        temp=new entry*[currentSize++];
+        temp=new entry*[currentSize+1];
 
         for(int i=0;i<currentSize;i++)
         {
             temp[i]=allEntries[i];
         }
         temp[currentSize]=new entry();
-        temp[currentSize++]->input();
+        temp[currentSize]->input();
         delete[]allEntries;
         allEntries=temp;
+        currentSize++;
+        cout<<"successfully input. total entries are now:"<<currentSize<<"label:"<<allEntries[currentSize-1]->getLabel()<<endl;
     }
 }
 void clipboard::deleteEntry()
