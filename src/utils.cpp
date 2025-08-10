@@ -8,7 +8,6 @@ char* inputUnlimited()
     int mySize=100;
     char*input=new char[mySize];
     int thisptr=0;
-    cout<<"1"<<endl;
     char alph='p';
     while (alph!='\n')
     {
@@ -25,19 +24,22 @@ char* inputUnlimited()
             }
             mySize+=100;
             delete[]input;
-            input=temp;
+            input = temp;
         }
     }
-    if (thisptr<mySize-1)
+
+    if (thisptr < mySize )
     {
-        char*temp=new char[thisptr+1];
-        for(int i=0;i<=thisptr;i++)
+        char *temp = new char[thisptr];
+        for (int i = 0; i < thisptr; i++)
         {
-            temp[i]=input[i];
+            temp[i] = input[i];
         }
-        delete[]input;
-        input=temp;
-        mySize=thisptr+1;
+         delete[] input;
+        input = temp;
     }
+    input[thisptr-1] = '\0';
+   
+    mySize = thisptr ;
     return input;
 }
